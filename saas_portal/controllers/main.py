@@ -79,8 +79,7 @@ class SaasPortal(http.Controller):
     def get_full_dbname(self, dbname):
         if not dbname:
             return None
-        full_dbname = '%s.%s' % (dbname, self.get_config_parameter('base_saas_domain'))
-        return full_dbname.replace('www.', '')
+        return dbname        
 
     def get_plan(self, plan_id=None):
         plan_obj = request.env['saas_portal.plan']
