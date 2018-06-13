@@ -240,7 +240,8 @@ def createdb(dbname):
         pg_dropdb(dbname)
     without_demo = args.get('without_demo')
     main_url = 'http://localhost:%s' % xmlrpc_port
-    demo = not without_demo
+    #demo = not without_demo
+    demo = false
     lang = 'en_US'  # TODO
     admin_password = args.get('admin_password')
 
@@ -249,6 +250,7 @@ def createdb(dbname):
     # create db if not exist
     created = False
     log('create database via xmlrpc', dbname)
+    log('using demo ?', demo)
     try:
         rpc_db.create_database(master_password, dbname, demo, lang, admin_password)
         created = True
